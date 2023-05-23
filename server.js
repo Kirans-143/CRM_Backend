@@ -48,6 +48,9 @@ async function init() {
   }
 }
 
+//Import routes
+require("./routes/auth.routes")(app);
+
 //App(server) listen for HTTP request at port 8080
 app.listen(serverConfig.PORT, () => {
   console.log("Application started at port 8080");

@@ -39,3 +39,13 @@ Note : if db already present in mongodb then 1.use crm_db
 # npm i body-parser
 
 # Server creatition is completed and now server is up and running with user schema
+
+### Session 2
+
+# routes folder -> auth.route.js - wher signup and signin api present
+
+# controller foledr -> signup and siognin logic contain and use them in controller and finally use controller in server.js
+
+# middlewares folder -> verifySignUp.js
+
+# utils - > constants > keep all contsnts in this file
