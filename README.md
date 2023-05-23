@@ -61,3 +61,5 @@ Note : if db already present in mongodb then 1.use crm_db
 # Create the user.controller.js for findAll, findById and update
 
 # create file convertUserObject(utils) - to enter the values dynamically
+
+# in user controller if(user.length>0) ==> if registerd user not present then it will give message instead of showing empty array
