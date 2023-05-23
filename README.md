@@ -49,3 +49,15 @@ Note : if db already present in mongodb then 1.use crm_db
 # middlewares folder -> verifySignUp.js
 
 # utils - > constants > keep all contsnts in this file
+
+# config => auth.config.js >>>> for secretekey for the signin
+
+# npm i jsonwebtoken ====> to generato web token at the time of signin
+
+# to create user API, 1st we need to create user.routes.js file and same is invoked in server.js
+
+# Create the middleware ===> authJWT.js => for authentication and authorization ( verifyToken and isAdmin resply)
+
+# Create the user.controller.js for findAll, findById and update
+
+# create file convertUserObject(utils) - to enter the values dynamically
