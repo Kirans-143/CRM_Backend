@@ -5,7 +5,7 @@ const constants = require("../utils/constants");
 exports.createTicket = async (req, res) => {
   const ticketObject = {
     title: req.body.title,
-    ticketPriority: req.body.ticketPriority,
+    ticketPrioroty: req.body.ticketPrioroty,
     description: req.body.description,
     status: req.body.status,
     reporter: req.userId, //coming from authJwt middleware
@@ -72,15 +72,6 @@ exports.updateTicket = async (req, res) => {
   }
 };
 
-exports.getAllTickets = async (req, res) => {
-  const queryObject = {
-    reporter: req.userId,
-  };
-  const tickets = await Ticket.find(queryObject);
-
-  if (tickets) {
-    return res.status(200).send(tickets);
-  }
-};
+exports.getAllTickets = (req, res) => {};
 
 exports.getOneTicket = (req, res) => {};
