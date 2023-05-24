@@ -43,6 +43,14 @@ const userSchema = new mongoose.Schema({
       return Date.now();
     },
   },
+  ticketsCreated: {
+    type: [mongoose.SchemaTypes.ObjectId],
+    ref: "Ticket",
+  },
+  ticketsAssigned: {
+    type: [mongoose.SchemaTypes.ObjectId],
+    ref: "Ticket",
+  },
 });
 
 module.exports = mongoose.model("User", userSchema);
