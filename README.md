@@ -91,3 +91,11 @@ Note : if db already present in mongodb then 1.use crm_db
 # create the ticket route.js for the APIs
 
 # now check all the APIs by postman
+
+## SESSION 5
+
+# In the ticket controller.js "if (req.query.status != undefined)
+
+# queryObject.status = req.query.status; "
+
+# shows the query to pass.... like in above code query is status and also more than one query can also be added just refer code
