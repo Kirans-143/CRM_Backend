@@ -99,3 +99,21 @@ Note : if db already present in mongodb then 1.use crm_db
 # queryObject.status = req.query.status; "
 
 # shows the query to pass.... like in above code query is status and also more than one query can also be added just refer code
+
+SESSION 6
+
+# now we want to make HTTP connection from CRM_Backend to Notification_Service and for that we will create HTTP Client object
+
+# Here CRM_Backend is Client and Notification_Service is Server
+
+# To create HTTP client we will use library => node rest client
+
+# npm i node-rest-client
+
+# Utils folder => NotificationClient.js to create new client object
+
+# call this NotificationClient.js file in tickectController.js => updateTicket
+
+# Run Both CRM_Backend and Notification Service and then go POSTMAN create ticket => update ticket then we will get the email in particular mail
+
+# after this we will get the RequestId in CRM_Backend copy that id and paste it in get notification by id(POSTMAN) then we will get the status of the ticket
