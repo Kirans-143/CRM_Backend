@@ -117,3 +117,23 @@ SESSION 6
 # Run Both CRM_Backend and Notification Service and then go POSTMAN create ticket => update ticket then we will get the email in particular mail
 
 # after this we will get the RequestId in CRM_Backend copy that id and paste it in get notification by id(POSTMAN) then we will get the status of the ticket
+
+# SESSION7
+
+# unit test run while code built condition
+
+# folder UNIT => folders => controllers, middlewares, routes
+
+# npm i jest
+
+# Some changes in package.json
+
+# mocking db => db.js
+
+# npm i mongodb-memory-server ====> for mocking
+
+# db.js => to create connection, createDatabase, closeDatabase, clearDatabase
+
+# interceptor.js => to create mockResponse and mockRequest
+
+# auth.controller.test.js => to write the test cases for SignUp and SignIn function
