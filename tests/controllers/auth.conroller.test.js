@@ -59,8 +59,85 @@ describe("SignUp", () => {
 });
 
 describe("SignIn", () => {
-  it("Should fail due to password missmatch", () => {});
-  it("Should fail as userStatus in PENDING", () => {});
-  it("Should fail as userId doesnt exist already", () => {});
-  it("Should pass and singIn the user", () => {});
+  it("Should fail due to password missmatch", async () => {
+    testPayload.userStatus = "APPROVED";
+    const userSpy = jest
+      .spyOn(User, "findOne")
+      .mockReturnValue(Promise.resolve(testPayload));
+    const bcryptSpy = jest.spyOn(bcrypt, "compareSync").mockReturnValue(false);
+    const req = mockRequest();
+    const res = mockResponse();
+    req.body = testPayload;
+
+    await signin(req, res);
+
+    expect(userSpy).toHaveBeenCalled();
+    expect(bcryptSpy).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(401);
+    expect(res.send).toHaveBeenCalledWith({
+      message: "Password provided is invalid",
+    });
+  });
+
+  it("Should fail as userStatus in PENDING", async () => {
+    testPayload.userStatus = "PENDING";
+    const userSpy = jest
+      .spyOn(User, "findOne")
+      .mockReturnValue(Promise.resolve(testPayload));
+    const req = mockRequest();
+    const res = mockResponse();
+    req.body = testPayload;
+
+    await signin(req, res);
+
+    expect(userSpy).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(403);
+    expect(res.send).toHaveBeenCalledWith({
+      message:
+        "Can't allow user to login as the status is " + testPayload.userStatus,
+    });
+  });
+  it("Should fail as userId doesnt exist already", async () => {
+    const userSpy = jest.spyOn(User, "findOne").mockReturnValue(null);
+    const req = mockRequest();
+    const res = mockResponse();
+    req.body = testPayload;
+
+    await signin(req, res);
+
+    expect(userSpy).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.send).toHaveBeenCalledWith({
+      message: "Failed! user id doesnt exist",
+    });
+  });
+
+  it("Should pass and singIn the user", async () => {
+    testPayload.userStatus = "APPROVED";
+    const userSpy = jest
+      .spyOn(User, "findOne")
+      .mockReturnValue(Promise.resolve(testPayload));
+    const bcryptSpy = jest.spyOn(bcrypt, "compareSync").mockReturnValue(true);
+    const jwtSpy = jest.spyOn(jwt, "sign").mockReturnValue("123");
+    const req = mockRequest();
+    const res = mockResponse();
+    req.body = testPayload;
+
+    await signin(req, res);
+
+    expect(jwtSpy).toHaveBeenCalled();
+    expect(userSpy).toHaveBeenCalled();
+    expect(bcryptSpy).toHaveBeenCalled();
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.send).toHaveBeenCalledWith(
+      expect.objectContaining({
+        accessToken: 123,
+        email: testPayload.email,
+        name: testPayload.name,
+        userId: testPayload.userId,
+        userTypes: testPayload.userType,
+        userStatus: testPayload.userStatus,
+      })
+    );
+  });
 });
