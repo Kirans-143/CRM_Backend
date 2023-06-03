@@ -2,6 +2,8 @@ const db = require("../db");
 const { mockRequest, mockResponse } = require("../interceptor");
 const User = require("../../models/user.model");
 const { signin, signup } = require("../../controllers/auth.controller");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 beforeAll(async () => await db.connect());
 afterEach(async () => await db.clearDatabase());
@@ -14,8 +16,8 @@ const testPayload = {
   userType: "CUSTOMER",
   email: "test@gmail.com",
   userStatus: "PENDING",
-  ticketsCreated: [],
-  ticketsAssigned: [],
+  createdAt: [],
+  updatedAt: [],
 };
 
 describe("SignUp", () => {
@@ -38,11 +40,9 @@ describe("SignUp", () => {
     );
   });
   it("Should return error while user creation", async () => {
-    const spy = jest
-      .spyOn(User, "create")
-      .mockImplementation((cb) =>
-        cb(new Error("Error occured while create"), null)
-      );
+    const spy = jest.spyOn(User, "create").mockImplementation(() => {
+      throw new Error("Error");
+    });
     const req = mockRequest();
     const res = mockResponse();
 
@@ -51,6 +51,7 @@ describe("SignUp", () => {
 
     await signup(req, res);
 
+    expect(spy).toHaveBeenCalled();
     expect(res.status).toHaveBeenCalledWith(500);
     expect(res.send).toHaveBeenCalledWith({
       message: "Some internal error occured",
@@ -131,7 +132,7 @@ describe("SignIn", () => {
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.send).toHaveBeenCalledWith(
       expect.objectContaining({
-        accessToken: 123,
+        accessToken: "123",
         email: testPayload.email,
         name: testPayload.name,
         userId: testPayload.userId,
