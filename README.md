@@ -165,3 +165,11 @@ Session8
 # now copy url and check API in PostMan
 # now will deploy Notification service
 # now copy that url and paste it in utils-> NotificationCLient
+# now npm i dotenv
+# this will set the environment variable. As we have adjusted the db url for server but this will not work in our local machine. so to correct that we will use .env library. and will create file in our root folder.
+# now will define the MONGODB_URI on our crm backend server
+# go to Environment option -> Add environment variable ->
+ ====> key: MONGODB_URI and value add the generated url
+ and now save changes
+ # do same thing in notification service also 
+ 
