@@ -3,7 +3,6 @@ const dbConfig = require("./config/db.config");
 const serverConfig = require("./config/server.config");
 const User = require("./models/user.model");
 const bcrypt = require("bcryptjs");
-require("dotenv").config()
 
 //Express setting
 const bodyParser = require("body-parser");
