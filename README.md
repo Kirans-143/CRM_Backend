@@ -159,4 +159,6 @@ Session8
 # add all IP Adress ( connect -> outbond )
 # finish and close
 # connect ->  mongoDB for VS code ->  copy nd paste  the generated link in -> config => db.config
+# in place of password => enter the password which we gave at the cloud env selection
 # update the repo
+# go to Manual Deploy => Deploy latest commit
