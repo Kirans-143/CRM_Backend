@@ -17,7 +17,7 @@ exports.createTicket = async (req, res) => {
     userStatus: constants.userStatus.approved,
   });
 
-  if(!engineer){
+  if(engineer){
     ticketObject.assignee = engineer.userId;
   }
   
