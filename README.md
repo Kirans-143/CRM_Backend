@@ -140,3 +140,23 @@ SESSION 6
 
 Session8
 # test case for FindById, FindAll and Update
+
+
+# Deployment
+# render :- Deploy nodejs app
+# Mongodb deployment :DB
+
+
+# Render:
+# new -> web Service -> paste git link 
+# root -> empty our root directory server.js in root folder only 
+# run time : node
+# build command : npm install
+# start command : npm run dev
+# now prees create web service, after start it will give error because we have localahost db so now we should go in mongodb cloud -> Build a Database -> Free -> Cluster Name === CRM_DATABASE
+# username and password 
+# select =>>>>> Cloud Environment 
+# add all IP Adress ( connect -> outbond )
+# finish and close
+# connect ->  mongoDB for VS code ->  copy nd paste  the generated link in -> config => db.config
+# update the repo
