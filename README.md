@@ -162,3 +162,6 @@ Session8
 # in place of password => enter the password which we gave at the cloud env selection
 # update the repo
 # go to Manual Deploy => Deploy latest commit
+# now copy url and check API in PostMan
+# now will deploy Notification service
+# now copy that url and paste it in utils-> NotificationCLient
