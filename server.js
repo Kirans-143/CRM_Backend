@@ -42,7 +42,7 @@ async function init() {
       userStatus: "APPROVED",
       password: bcrypt.hashSync("Welcome1", 8),
     });
-    // console.log(user);
+    console.log(user);
   } catch (e) {
     console.log("Error while creating admin user " + e);
   }

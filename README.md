@@ -137,3 +137,6 @@ SESSION 6
 # interceptor.js => to create mockResponse and mockRequest
 
 # auth.controller.test.js => to write the test cases for SignUp and SignIn function
+
+Session8
+# test case for FindById, FindAll and Update
