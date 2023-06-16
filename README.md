@@ -139,37 +139,62 @@ SESSION 6
 # auth.controller.test.js => to write the test cases for SignUp and SignIn function
 
 Session8
+
 # test case for FindById, FindAll and Update
 
-
 # Deployment
+
 # render :- Deploy nodejs app
+
 # Mongodb deployment :DB
 
-
 # Render:
-# new -> web Service -> paste git link 
-# root -> empty our root directory server.js in root folder only 
+
+# new -> web Service -> paste git link
+
+# root -> empty our root directory server.js in root folder only
+
 # run time : node
+
 # build command : npm install
+
 # start command : npm run dev
+
 # now prees create web service, after start it will give error because we have localahost db so now we should go in mongodb cloud -> Build a Database -> Free -> Cluster Name === CRM_DATABASE
-# username and password 
-# select =>>>>> Cloud Environment 
+
+# username and password
+
+# select =>>>>> Cloud Environment
+
 # add all IP Adress ( connect -> outbond )
+
 # finish and close
-# connect ->  mongoDB for VS code ->  copy nd paste  the generated link in -> config => db.config
+
+# connect -> mongoDB for VS code -> copy nd paste the generated link in -> config => db.config
+
 # in place of password => enter the password which we gave at the cloud env selection
+
 # update the repo
+
 # go to Manual Deploy => Deploy latest commit
+
 # now copy url and check API in PostMan
+
 # now will deploy Notification service
+
 # now copy that url and paste it in utils-> NotificationCLient
+
 # now npm i dotenv
+
 # this will set the environment variable. As we have adjusted the db url for server but this will not work in our local machine. so to correct that we will use .env library. and will create file in our root folder.
+
 # now will define the MONGODB_URI on our crm backend server
+
 # go to Environment option -> Add environment variable ->
- ====> key: MONGODB_URI and value add the generated url
- and now save changes
- # do same thing in notification service also 
- 
+
+====> key: MONGODB_URI and value add the generated url
+and now save changes
+
+# do same thing in notification service also
+
+# npm install cors

@@ -3,6 +3,7 @@ const dbConfig = require("./config/db.config");
 const serverConfig = require("./config/server.config");
 const User = require("./models/user.model");
 const bcrypt = require("bcryptjs");
+var cors = require("cors");
 
 //Express setting
 const bodyParser = require("body-parser");
@@ -10,6 +11,7 @@ const express = require("express");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 //Establish connection
 mongoose.connect(dbConfig.DB_URL);
